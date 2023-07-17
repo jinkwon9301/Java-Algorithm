@@ -68,18 +68,4 @@ Empty
 
 <p>※2023년 05월 15일 제한사항이 수정되었습니다.</p>
 
-```java
-class Solution {
-    public int solution(String myString, String pat) {
-
-        myString = myString.toLowerCase();
-        pat = pat.toLowerCase();
-
-        if (myString.contains(pat)) return 1;
-        return 0;
-
-    }
-}
-```
-
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
