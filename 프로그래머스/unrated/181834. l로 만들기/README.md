@@ -67,5 +67,13 @@ Empty
 <li>따라서 "llnnllllmm"을 return 합니다.</li>
 </ul>
 
+```java
+// 다른 풀이
+class Solution {
+    public String solution(String myString) {
+        return myString.replaceAll("[^l-z]", "l");
+    }
+}
+```
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
