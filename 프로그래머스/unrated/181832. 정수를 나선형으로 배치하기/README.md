@@ -1,4 +1,4 @@
-# [unrated] (*) 정수를 나선형으로 배치하기 - 181832 
+# [unrated] 정수를 나선형으로 배치하기 - 181832 
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181832) 
 
