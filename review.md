@@ -16,6 +16,7 @@
 - Lv1. 옹알이 (2) (replace)
 - Lv1. 숫자 짝꿍
 - Lv1. 실패율 (실수의 정렬 기준 : Double.compare(o2[0], o1[0]), (0 / 0 --> NaN)
+- Lv1. 크레인 인형뽑기 게임 (Stack<Integer>)
 
 
 
