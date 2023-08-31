@@ -17,7 +17,7 @@
 - Lv1. 숫자 짝꿍
 - Lv1. 실패율 (실수의 정렬 기준 : Double.compare(o2[0], o1[0]), (0 / 0 --> NaN)
 - Lv1. 크레인 인형뽑기 게임 (Stack<Integer>)
-- Lv1. 신고 결과 받기
+- Lv1. 신고 결과 받기 (논리를 순차적으로 적는 연습을 해보자, getOrDefault)
 
 
 
