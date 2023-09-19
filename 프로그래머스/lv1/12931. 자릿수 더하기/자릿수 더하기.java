@@ -2,11 +2,12 @@ import java.util.*;
 
 public class Solution {
     public int solution(int n) {
-        String str = n + "";
         int sum = 0;
-        for (int i = 0; i < str.length(); i++) {
-            sum += str.charAt(i) - '0';
+        while (n != 0) {
+            sum += (n % 10);
+            n /= 10;
         }
         return sum;
     }
+    
 }
