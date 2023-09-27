@@ -34,3 +34,38 @@ class Solution {
         return answer;
     }
 }
+
+// class Solution {
+//     public int[] solution(int[] sequence, int k) {
+//         // 투 포인터
+//         int[] result = {0, 0};
+//         int start = 0;
+//         int end = 0;
+//         int size = sequence.length;
+//         int sum = 0;
+
+//         while (true) {
+//           sum = 0;
+
+//           for (int i = start; i <= end; i++) {
+//             sum += sequence[i];
+//           }
+
+//           if (sum < k) end++;
+//           else if (k < sum) start++;
+//           else if (k == sum) {
+//             if (end - start < size) {
+//               result[0] = start;
+//               result[1] = end;
+//               size = end - start;
+//               if (size == 0) break;
+//             }
+//             start++;
+//           }
+
+//           if (end == sequence.length || start == end + 1) break;
+//         }
+
+//         return result;
+//     }
+// }
