@@ -1,3 +1,6 @@
+// PriorityQueue, DP 풀이 방법 
+// 참고 : https://tang25.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%ED%98%B8%ED%85%94-%EB%8C%80%EC%8B%A4-Lv2-JAVA-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%ED%81%90%EC%97%84%ED%83%B1
+
 import java.util.*;
 
 class Solution {
