@@ -1,3 +1,8 @@
+// 내가 푼 것 아님
+// 참고 : [[level2] 프로그래머스 - 메뉴 리뉴얼(JAVA)](https://jisunshine.tistory.com/146)
+
+// 컴비네이션, dfs
+
 import java.util.*;
 
 class Solution {
