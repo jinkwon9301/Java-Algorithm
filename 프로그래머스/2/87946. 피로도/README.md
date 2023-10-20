@@ -82,3 +82,66 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+---
+
+문제
+백트래킹에 익숙하다면, 그렇게까지 어려운 문제가 아니다.
+
+문제 자체는 이해가 어렵지 않으니 바로 넘어가도록 한다.
+
+알고리즘
+점화식(재귀함수)
+이 문제에서의 한 던전은 DFS의 한 노드와 같다.
+
+즉, dungeons를 선회하면서
+
+이미 방문한 던전(노드) 인지를 확인한다.
+
+boolean 타입 배열 visited를 이용한다.
+만약 방문한 던전(노드)라면, 다음 노드로 넘어간다.
+각 던전의 필요 피로도와 현재 피로도를 비교하며 던전을 탐험할 수 있는지 판단한다.
+
+방문한 적이 없고, 현재 피로도가 필요 피로도보다 높다면 점화식을 수행하게 된다.
+
+해당 던전을 방문한 것으로 처리한다.
+1 증가한 depth와 현재 피로도에서 해당 던전의 소모 피로도만큼 감소한 상태로 다음 재귀를 돌게 된다.
+해당 던전을 방문하지 않은 것으로 처리한다.
+종료 조건
+이 문제의 경우엔 따로 점화식의 종료 조건이 없다. 즉, 모든 경우의 수를 순회한다는 의미이다.
+
+전역변수화 고려하기
+DFS문제의 경우 변화하지 않는 변수를 사용하여 재귀함수의 파라미터를 줄일 수 있다.
+
+이 문제의 경우엔 dungeons 배열은 변화하지 않으므로, 전역 변수로 이차원 int 배열을 생성하고, dungeons로 초기화하여 사용한다면, 인자 하나를 적게 넘겨줄 수 있다.
+
+다른 DFS 문제들의 경우엔 특정 depth에 도달하는 경우의 수를 구하는 등의 경우가 있다. 전역 변수로 선언하여 간결한 코드로 구현할 수 있다.
+
+코드
+class Solution {  
+    static boolean[] visited;  
+    static int count = 0;  
+  
+    public int solution(int k, int[][] dungeons) {  
+        visited = new boolean[dungeons.length];  
+        dfs(0, k, dungeons);  
+        return count;  
+    }  
+      
+    private void dfs(int depth, int fatigue, int[][] dungeons){  
+        for (int i = 0; i < dungeons.length; i++){  
+            if (visited[i] || dungeons[i][0] > fatigue) {  
+                continue;  
+            }  
+            visited[i] = true;  
+            dfs(depth + 1, fatigue - dungeons[i][1], dungeons);  
+            visited[i] = false;  
+        }  
+        count = Math.max(count, depth);  
+    }  
+}
+재귀 함수 내에서 depth +1 을 인자로 보내게 되는데, 이때 depth++을 사용했다면, dfs 재귀 호출 다음 줄에서 depth--하지 않으면 틀린다.
+
+depth++, depth--의 경우 depth 변수 자체의 값을 변화시킨채 유지 되기 때문이다.
+
+출처 : [[프로그래머스] 피로도 - JAVA [자바]](https://velog.io/@doxxx93/practice-kit-brute-force-2)
