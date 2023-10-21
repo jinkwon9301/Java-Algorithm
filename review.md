@@ -50,6 +50,7 @@
 - Lv2. 기능개발 (큐)
 - Lv2. [1차] 캐시 (LRU, LinkedList)
 - Lv2. 피로도 (dfs, 백트래킹, 스스로 해결 못함)
+- Lv2. 프로세스 (스택/큐)
 
 
 ---
@@ -82,6 +83,7 @@
 - Lv1. 명예의 전당 (1) - PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
 - Lv1. 크레인 인형뽑기 게임 (Stack<Integer>)
 - Lv1. 햄버거 만들기 (스택)
+- Lv2. 프로세스 (스택/큐)
 
 ### 📖 정렬
 #### 프로그래머스
