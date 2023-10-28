@@ -53,6 +53,7 @@
 - Lv2. [1차] 캐시 (LRU, LinkedList)
 - Lv2. 피로도 (dfs, 백트래킹, 스스로 해결 못함)
 - Lv2. 프로세스 (스택/큐)
+- Lv2. 튜플 (map.put(i, map.getOrDefault(i, 0) + 1))
 
 
 ---
