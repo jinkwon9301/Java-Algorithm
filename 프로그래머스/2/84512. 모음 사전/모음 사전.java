@@ -12,7 +12,7 @@ class Solution {
         list = new ArrayList<>();
         arr = new String[]{"A", "E", "I", "O", "U"};
         // 완전탐색 메서드 호출
-        recursion(word, "", 0);
+        recursion("", 0);
         
         // 선형 탐색
         for (int i = 0; i < list.size(); i++) {
@@ -25,7 +25,7 @@ class Solution {
     }
     
     // 완전탐색 메서드
-    static void recursion(String word, String str, int depth) {
+    static void recursion(String str, int depth) {
         list.add(str);
         
         if(depth == 5) {
@@ -33,7 +33,7 @@ class Solution {
         }
         
         for (int i = 0; i < arr.length; i++) {
-            recursion(word, str + arr[i], depth + 1);
+            recursion(str + arr[i], depth + 1);
         }
     }
 }
