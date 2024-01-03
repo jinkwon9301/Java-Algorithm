@@ -145,3 +145,44 @@ class Solution {
 depth++, depth--의 경우 depth 변수 자체의 값을 변화시킨채 유지 되기 때문이다.
 
 출처 : [[프로그래머스] 피로도 - JAVA [자바]](https://velog.io/@doxxx93/practice-kit-brute-force-2)
+
+```java
+// 24/1/3 (수) 복습
+// dfs 문제
+// 백트래킹?
+
+import java.util.*;
+
+class Solution {
+    
+    static boolean[] visited;
+    static int count = 0;
+    
+    public int solution(int k, int[][] dungeons) {
+        visited = new boolean[dungeons.length];
+        dfs(0, k, dungeons);
+        
+        return count;
+    }
+    
+    static void dfs(int depth, int fatigue, int[][] dungeons) {
+        // 방문할 던전들을 순회한다.
+        for (int i = 0; i < dungeons.length; i++) {
+            // 만약 던전을 방문했거나 필요피로도가 남은 피로도보다 크다면 무시하고 다음 던전을 탐색한다.
+            if (visited[i] || fatigue < dungeons[i][0]) {
+                continue;
+            }
+            
+            // 해당 던전을 방문한다.
+            visited[i] = true;
+            // 다음으로 방문할 던전들을 순회하기 위해 재귀함수 실행
+            dfs(depth + 1, fatigue - dungeons[i][1], dungeons);
+            // 던전 방문을 취소한다.
+            visited[i] = false;
+        }
+        
+        // 최대 방문횟수를 저장한다.
+        count = Math.max(count, depth);
+    }
+}
+```
