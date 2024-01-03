@@ -118,6 +118,8 @@ DFS문제의 경우 변화하지 않는 변수를 사용하여 재귀함수의 �
 다른 DFS 문제들의 경우엔 특정 depth에 도달하는 경우의 수를 구하는 등의 경우가 있다. 전역 변수로 선언하여 간결한 코드로 구현할 수 있다.
 
 코드
+
+```java
 class Solution {  
     static boolean[] visited;  
     static int count = 0;  
@@ -140,6 +142,7 @@ class Solution {
         count = Math.max(count, depth);  
     }  
 }
+```
 재귀 함수 내에서 depth +1 을 인자로 보내게 되는데, 이때 depth++을 사용했다면, dfs 재귀 호출 다음 줄에서 depth--하지 않으면 틀린다.
 
 depth++, depth--의 경우 depth 변수 자체의 값을 변화시킨채 유지 되기 때문이다.
