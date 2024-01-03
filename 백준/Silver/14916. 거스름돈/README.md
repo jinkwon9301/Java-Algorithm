@@ -30,3 +30,42 @@
 
  <p>거스름돈 동전의 최소 개수를 출력한다. 만약 거슬러 줄 수 없으면 -1을 출력한다.</p>
 
+---
+
+풀이
+
+반복문을 true로 돌린다. 그러면서 해당 값이 5로 나누어 떨어지면 break 하면서 주어진 값을 5로 나누고 나눈 값을 count에 추가한다.
+
+5로 나누어 떨어지지 않으면 주어진 수인 2로 계속 빼면서 count를 1씩 추가해 나간다. 
+
+간단하게 5로나누고 2로 나누면 틀린다. -> 13일 경우 2로 먼저 계속 빼보면 13 -> 11 -> 9 -> 7 -> 5 이런식으로 가면서 2가 4개 5가 한 개 이런식의 주어진 값들이 있어서 이를 처리하기 위해 이처럼 진행한다.
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int N = sc.nextInt();
+        int count = 0;
+        int temp = 0;
+         while(true){
+             if(N%5 == 0){
+                    count += N/5;
+                 System.out.println(count);
+                 break;
+             }else{
+                 N -= 2;
+                 count++;
+             }
+             if(N < 0){
+                 System.out.println(-1);
+                 break;
+             }
+         }
+    }
+}
+```
+
+출처 : [백준 No. 14916 거스름돈 JAVA](https://jaewoo2233.tistory.com/55)
