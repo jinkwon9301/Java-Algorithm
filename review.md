@@ -81,7 +81,7 @@
 ### 📖 DFS
 #### 프로그래머스
 - Lv2. 피로도 (dfs, 백트래킹, <span style="color:red">스스로 해결 못함</span>) <span style="color:red">🧑‍💻 24/1/3(수) 복습</span> 🔥
-- Lv2. 거리두기 확인하기 (dfs)
+- Lv2. 거리두기 확인하기 (dfs, bfs, <span style="color:red">스스로 해결 못함</span>) <span style="color:red">🧑‍💻 24/1/4(목) 복습</span> 🔥
 - Lv2. 메뉴 리뉴얼 (combination, dfs)
 - Lv2. 깊이/너비 우선 탐색(DFS/BFS)
 
