@@ -30,3 +30,37 @@
 
  <p>첫째 줄에 답을 출력한다.</p>
 
+---
+
+그리디 알고리즘으로 접근해야 한다. 먼저 물체의 최대 중량을 구할 때 모든 로프를 사용해야 할 필요는 없다고 명시되어 있으니 무개를 견딜 수 있는 무게가 가장 큰 로프를 하나씩 선택하면서 물체의 최대중량을 갱신한다.
+
+```java
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        Integer[] arr = new Integer[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] =sc.nextInt();
+        }
+        Arrays.sort(arr, Collections.reverseOrder());
+
+        int answer = 0;
+        for (int i = 0; i < n; i++) {
+            if(arr[i] * (i+1) > answer) answer = arr[i] * (i+1); //최소값 * 로프의수가 answer보다 크다면 갱신
+        }
+
+
+        System.out.println(answer);
+    }
+
+}
+```
+
+출처 : [백준 2217번 로프 (JAVA)](https://velog.io/@wken5577/%EB%B0%B1%EC%A4%80-2217%EB%B2%88-%EB%A1%9C%ED%94%84-JAVA)
