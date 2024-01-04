@@ -115,6 +115,7 @@
 - [SILVER V] 폴리오미노 - 1343 (그리디, <span style="color:red">스스로 해결 못함</span>) 🔥
 - [SILVER V] 거스름돈 - 14916
 - [SILVER V] 사과담기게임 - 2828
+- [SILVER IV] 로프 - 2217
 
 ### 📖 해시
 #### 프로그래머스
