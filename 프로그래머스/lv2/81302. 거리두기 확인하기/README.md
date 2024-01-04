@@ -457,3 +457,156 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+
+---
+
+문제를 읽고 전형적인 DFS / BFS 문제라고 생각했다.
+다만 DFS / BFS를 구현하는 부분이 조금 막혔다.
+그래서 모든 경우의 수를 나누어 먼저 풀어보았고
+BFS를 이용해서 다시 풀어 보았다.
+
+ 
+모든 경우의 수를 나눈 방법은 BFS를 이용했을 때보다 시간이 훨씬 적게 걸렸다.
+다만 코드의 길이가 좀 길고 거리가 2인 확인과 대각선 확인의 로직이 복잡해
+장단점이 있는 것 같다.
+
+
+최종 코드 (모든 경우)
+```java
+class Solution {
+    public int[] solution(String[][] places) {
+        int[] answer = new int[5];
+
+        for (int i = 0; i < places.length; i++) {
+            String[] temp = places[i];
+            boolean check = false;
+            for (int j = 0; j < 5; j++) {
+                for (int k = 0; k < 5; k++) {
+                    if (temp[j].charAt(k) == 'P') {
+                        if(search(j, k, temp)) {
+                            check = true;
+                        }
+                    }
+                }
+            }
+            answer[i] = check ? 0 : 1;
+        }
+        return answer;
+    }
+        static boolean search(int x, int y, String[] temp) {
+        // 상하좌우 확인
+        int[] dx = {0, 0, 1, -1};
+        int[] dy = {1, -1, 0, 0};
+
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+            if (nx < 0 || ny < 0 || nx >= 5 || ny >= 5) {
+                continue;
+            }
+            if (temp[nx].charAt(ny) == 'P') {
+                return true;
+            }
+        }
+
+        // 거리 2인 경우 확인
+        int[] dx2 = {0, 0, 2, -2};
+        int[] dy2 = {2, -2, 0, 0};
+
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dx2[i];
+            int ny = y + dy2[i];
+            if (nx < 0 || ny < 0 || nx >= 5 || ny >= 5) {
+                continue;
+            }
+            if (temp[nx].charAt(ny) == 'P') {
+                // 둘 사이에 X가 없다면
+                if (temp[x + dx2[i] / 2].charAt(y + dy2[i] / 2) != 'X') {
+                    return true;
+                }
+            }
+        }
+
+        // 대각선 확인
+        int[] dx3 = {1, 1, -1, -1};
+        int[] dy3 = {1, -1, 1, -1};
+
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dx3[i];
+            int ny = y + dy3[i];
+            if (nx < 0 || ny < 0 || nx >= 5 || ny >= 5) {
+                continue;
+            }
+            if (temp[nx].charAt(ny) == 'P') {
+                // p위치에 맞는 상하좌우에 X가 없다면
+                if (!(temp[x].charAt(ny) == 'X' && temp[nx].charAt(y) == 'X')) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+최종 코드 (BFS)
+```java
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+class Solution {
+    public int[] solution(String[][] places) {
+        int[] answer = new int[5];
+
+        for (int i = 0; i < places.length; i++) {
+            String[] temp = places[i];
+            boolean check = false;
+            for (int j = 0; j < 5; j++) {
+                for (int k = 0; k < 5; k++) {
+                    if (temp[j].charAt(k) == 'P') {
+                        if(bfs(j, k, temp)) {
+                            check = true;
+                        }
+                    }
+                }
+            }
+            answer[i] = check ? 0 : 1;
+        }
+        return answer;
+    }
+    static boolean bfs(int x, int y, String[] p) {
+        Queue<int[]> queue = new LinkedList<>();
+        queue.add(new int[]{x, y});
+
+        int[] dx = {1, -1, 0, 0};
+        int[] dy = {0, 0, 1, -1};
+
+        while (!queue.isEmpty()) {
+            int[] temp = queue.poll();
+            for (int i = 0; i < 4; i++) {
+                int nx = temp[0] + dx[i];
+                int ny = temp[1] + dy[i];
+
+                // 탐색 범위를 벗어나면 + 최초 출발점을 탐색에서 제외
+                if ((nx < 0 || ny < 0 || nx >= 5 || ny >= 5) || (nx == x && ny == y)) {
+                    continue;
+                }
+
+                // 맨해튼 거리 구하기
+                int m = Math.abs(x - nx) + Math.abs(y - ny);
+
+                // p가 맨해튼 거리 안에 있다면
+                if (p[nx].charAt(ny) == 'P' && m <= 2) {
+                    return true;
+                    // O를 발견하면 O를 중심으로 다시 탐색
+                } else if (p[nx].charAt(ny) == 'O' && m < 2) {
+                    queue.add(new int[]{nx, ny});
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+출처 : [(Java) 프로그래머스 거리두기 확인하기](https://rovictory.tistory.com/101)
