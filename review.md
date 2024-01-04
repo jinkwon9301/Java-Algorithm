@@ -77,7 +77,7 @@
 ### 📖 완전탐색
 #### 프로그래머스
 - Lv2. 모음사전 (스스로 해결 못함 : 완전탐색, 재귀, combination 후에 인덱스 정렬, 781 / 156 / 31 / 6 / 1)
-<span style="color:red">스스로 해결 못함</span>
+
 ### 📖 DFS
 #### 프로그래머스
 - Lv2. 피로도 (dfs, 백트래킹, <span style="color:red">스스로 해결 못함</span>) <span style="color:red">🧑‍💻 24/1/3(수) 복습</span> 🔥
