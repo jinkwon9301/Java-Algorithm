@@ -36,3 +36,20 @@
 
  <p>표준 출력으로 제일 왼쪽 도시에서 제일 오른쪽 도시로 가는 최소 비용을 출력한다. </p>
 
+---
+
+<img width="684" alt="Screenshot 2024-01-05 at 11 22 46 AM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/3733bdb4-e918-4be8-b46c-6a54ffcf9355">
+
+<img width="697" alt="Screenshot 2024-01-05 at 11 22 55 AM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/f76e8030-36e4-41b8-9fa2-dd8a7e211c18">
+
+<img width="694" alt="Screenshot 2024-01-05 at 11 23 01 AM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/df054f66-f428-4b4d-9293-9de0faca2cd8">
+
+<img width="658" alt="Screenshot 2024-01-05 at 11 23 08 AM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/eaf96e03-a9c8-455b-8fd8-2b07231ab8fb">
+
+<img width="671" alt="Screenshot 2024-01-05 at 11 23 16 AM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/126a0209-7afc-47c1-ae85-71bc22b4a652">
+
+<img width="691" alt="Screenshot 2024-01-05 at 11 23 23 AM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/3068a81d-d0b1-46c3-8a6c-9045e546afc1">
+
+<img width="672" alt="Screenshot 2024-01-05 at 11 23 33 AM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/6ecbc86a-1fa4-4d4b-9d39-9338324cbbec">
+
+출처 : [백준 주유소 13305 58점 100점 코드](https://bada744.tistory.com/169)
