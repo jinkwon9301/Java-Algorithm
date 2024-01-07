@@ -36,3 +36,186 @@
 
  <p>각 테스트케이스 별로 최대 이익을 나타내는 정수 하나를 출력한다. 답은 부호있는 64bit 정수형으로 표현 가능하다.</p>
 
+---
+
+접근 방법
+이 문제에 핵심
+
+ 
+
+1. 홍준이는 문제에서 나오는 3가지 행동만 가능합니다.
+
+2. 홍준이가 주식으로 얻을 수 있는 최대 이익 값을 결과로 출력합니다.
+
+3. 답은 부호있는 64bit 정수형으로 표현 가능합니다.
+
+ 
+
+알고리즘 진행 순서.
+
+ 
+
+1. 입력된 정보를 저장합니다.
+
+ 
+
+2. 주식의 정보를 역방향으로 탐색하여 최대 이익의 값을 구합니다.
+
+ 
+
+3. 구한 최대 이익의 값을 결과로 출력합니다.
+
+ 
+
+ 
+
+역방향 탐색
+
+ 
+ 
+주식으로 최대의 이익을 보려면 주식을 구입한 가격과 판매하는 가격의 차이가 가장 커야 합니다.
+ 
+역방향으로 탐색할 때 판매하는 가격의 큰 값을 먼저 얻어서 비교할 수 있습니다.
+ 
+ 
+예를 들어
+ 
+N = 5
+ 
+1 2 3 2 4
+ 
+역방향으로 탐색
+ 
+판매하는 가격이 4보다 큰 값이 있을 때까지 이전 주식의 값들은 모두 4원에 판매됩니다.
+ 
+1 2 3 2 4
+ 
+ 
+또 다른 예
+ 
+1 2 5 2 4
+ 
+역방향으로 탐색하면 판매하는 가격이 4보다 큰 값 5가 존재합니다.
+ 
+1 2 5 2 4
+ 
+빨간색 부분까지는 4원으로 판매한 뒤, 파란색 부분부터는 5원으로 판매를 진행합니다.
+ 
+ 
+
+예제입력 1.
+
+ 
+
+1. 입력된 정보를 저장합니다.
+
+※ 테스트케이스 3번의 진행과정을 보여드리겠습니다.
+
+ 
+
+N = 5
+
+ 
+
+주식의 시세
+
+1	1	3	1	2
+ 
+
+2. 주식의 정보를 역방향으로 탐색하여 최대 이익의 값을 구합니다.
+
+ 
+
+역방향 탐색 진행!
+ 
+
+가장 큰 시세값 : 2
+ 
+1	1	3	1	2(가장 큰 시세)
+ 
+
+가장 큰 시세값보다 큰 값이 있을 때까지 판매 진행!
+
+ 
+
+1	1	3	1	2(가장 큰 시세)
+ 
+
+2 - 1 = 1 
+
+ 
+
+가장 큰 시세(2)보다 큰 시세 값(3)발견!
+
+ 
+
+해당 값을 가장 큰 시세값으로 변경한 뒤 판매 진행!
+
+ 
+
+1	1	3(가장 큰 시세)	1	2
+3 - 1 = 2
+
+3 - 1 = 2
+
+ 
+
+모든 주식 탐색 완료!
+
+ 
+
+3. 구한 최대 이익의 값을 결과로 출력합니다.
+
+ 
+
+1 + 2 + 2 = 5
+
+ 
+5을 결과로 출력합니다.
+ 
+
+BufferedReader를 사용하여 입력되는 정보를 저장합니다.
+StringTokenizer를 이용하여 주식의 시세를 띄어쓰기 기준 나누었습니다.
+시세의 값을 역방향으로 탐색하며 가장 큰 시세 기준 판매 및 변경하여 시세 차익을 구합니다.
+각 테스트케이스의 시세 차익의 합을 결과로 BufferedWriter에 저장하였습니다.
+BufferedWriter에 저장된 결과값을 출력하였습니다.
+
+
+```java
+import java.io.*;
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) throws IOException {
+        //입력값 처리하는 BufferedReader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        //결과값 출력하는 BufferedWriter
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int T = Integer.parseInt(br.readLine());
+        int[] num;
+        StringTokenizer st;
+        //각 테스트케이스 진행!
+        for(int i=0;i<T;i++){
+            int N = Integer.parseInt(br.readLine());
+            long answer = 0;
+            st = new StringTokenizer(br.readLine()," ");
+            num = new int[N];
+            //주식의 시세 정보 저장
+            for(int j=0;j<N;j++)
+                num[j] = Integer.parseInt(st.nextToken());
+            int max = num[N-1];	//마지막 값을 가장 큰 시세로 설정!
+            //역방향 탐색 진행!
+            for(int j=N-2;j>=0;j--) {
+                if(num[j] <= max)	//가장 큰 시세보다 작은 시세일 때 판매!
+                    answer += max - num[j];
+                else		//가장 큰 시세보다 큰 시세 탐색시 바꾸기
+                    max = num[j];
+            }
+            bw.write(answer + "\n");	//시세 차익의 합 BufferedWriter 저장
+        }
+        bw.flush();		//결과 출력
+        bw.close();
+        br.close();
+    }
+}
+```
