@@ -34,9 +34,9 @@ public class Main {
 
 		int cnt = 0;
 
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < M; j++) {
-				if (A[i][j] != B[i][j] && i + 2 < N && j + 2 < M) {
+		for (int i = 0; i < N - 2; i++) {
+			for (int j = 0; j < M - 2; j++) {
+				if (A[i][j] != B[i][j]) {
 					for (int r = i; r < i + 3; r++) {
 						for (int c = j; c < j + 3; c++) {
 							A[r][c] = A[r][c] == 0 ? 1 : 0;
