@@ -60,25 +60,22 @@
 예제입력 1.
 1. 입력된 정보를 저장합니다.
 N : 3
- 
- ![R1280x0](https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/e22ab61c-2911-4f04-8720-deabe6c0f700)
+
+![R1280x0](https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/e22ab61c-2911-4f04-8720-deabe6c0f700)
 
 2. 사람들의 수를 기준으로 가장 적절한 우체국의 위치를 탐색합니다.
  
 총 인원수 : 11명
  
 중간값 : 6
- 
-￼![R1280x0](https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/9e1a4935-8ad8-4935-84c7-3e0233ace56c)
+
+![R1280x0](https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/9e1a4935-8ad8-4935-84c7-3e0233ace56c)
 
 인원 수 : 3명 < 6명(중간값)
 → 해당 마을은 우체국 설치 X
- 
+
 ![R1280x0](https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/7b23dd32-1bc3-4d3d-926b-b1ae3160435f)
 
-￼
-
- 
 인원 수 : 8명 ≥ 6명(중간값)
 → 해당 마을은 처음으로 중간값보다 크거나 같으므로 해당 마을에 우체국 설치!
  
