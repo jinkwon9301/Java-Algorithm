@@ -28,3 +28,7 @@
 
  <p>입력으로 주어진 숫자에서 K개를 지웠을 때 얻을 수 있는 가장 큰 수를 출력한다.</p>
 
+---
+
+참고 :[
+[ 백준 / BOJ 2812 ] 크게 만들기 ( JAVA / 자바 )](https://hyeyun.tistory.com/entry/%EB%B0%B1%EC%A4%80-BOJ-2812-%ED%81%AC%EA%B2%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0-JAVA-%EC%9E%90%EB%B0%94)
