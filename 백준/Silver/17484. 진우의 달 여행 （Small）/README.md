@@ -46,4 +46,7 @@
 
 ---
 
+<img width="989" alt="Screenshot 2024-01-18 at 3 08 49 PM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/54ab031f-44ac-4608-8cd8-793e9151b3b7">
+
+
 참고 : [진우의 달 여행 : 백준 17484](https://hoho325.tistory.com/100)
