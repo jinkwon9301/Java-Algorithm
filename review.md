@@ -90,6 +90,8 @@
 - Lv2. 거리두기 확인하기 (dfs, bfs, <span style="color:red">스스로 해결 못함</span>) <span style="color:red">🧑‍💻 24/1/4(목) 복습</span> 🔥
 - Lv2. 메뉴 리뉴얼 (combination, dfs)
 - Lv2. 깊이/너비 우선 탐색(DFS/BFS)
+#### 백준
+- [SILVER III] 진우의 달 여행(Small) - 17484 (DFS, DP, 스스로 해결 못함🔥)
 
 ### 📖 Two-Pointer
 #### 프로그래머스
