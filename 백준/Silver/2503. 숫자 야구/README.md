@@ -64,12 +64,14 @@
  <p>첫 줄에 영수가 생각하고 있을 가능성이 있는 답의 총 개수를 출력한다.</p>
 
 ---
-<img width="811" alt="Screenshot 2024-01-20 at 12 32 29 PM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/e14b5e6b-4731-4b29-9737-711cb13ee59b">
-<img width="805" alt="Screenshot 2024-01-20 at 12 32 22 PM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/d98c3ff9-4d78-4ed7-95ab-55b8e645cbba">
-<img width="818" alt="Screenshot 2024-01-20 at 12 32 11 PM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/36e9f451-65fb-4e01-bb57-02b16d2a9677">
+
 <img width="778" alt="Screenshot 2024-01-20 at 12 31 53 PM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/618a8cee-2fd3-46a0-ae5b-97f4785c5d7e">
 
+<img width="818" alt="Screenshot 2024-01-20 at 12 32 11 PM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/36e9f451-65fb-4e01-bb57-02b16d2a9677">
 
+<img width="805" alt="Screenshot 2024-01-20 at 12 32 22 PM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/d98c3ff9-4d78-4ed7-95ab-55b8e645cbba">
+
+<img width="811" alt="Screenshot 2024-01-20 at 12 32 29 PM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/e14b5e6b-4731-4b29-9737-711cb13ee59b">
 
 ```java
 import java.io.*;
