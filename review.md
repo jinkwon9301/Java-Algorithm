@@ -95,6 +95,7 @@
 #### 백준
 - [SILVER III] 진우의 달 여행(Small) - 17484 (DFS, DP, 스스로 해결 못함🔥)
 - [SILVER II] 부분수열의 합 - 1182 (DFS, 스스로 해결 못함🔥)
+- [SILVER I] 부등호 - 2529 (DFS, 스스로 해결 못함🔥)
 
 ### 📖 Two-Pointer
 #### 프로그래머스
