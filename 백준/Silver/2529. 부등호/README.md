@@ -38,3 +38,95 @@
 
  <p>여러분은 제시된 부등호 관계를 만족하는 k+1 자리의 최대, 최소 정수를 첫째 줄과 둘째 줄에 각각 출력해야 한다. 단 아래 예(1)과 같이 첫 자리가 0인 경우도 정수에 포함되어야 한다. 모든 입력에 답은 항상 존재하며 출력 정수는 하나의 문자열이 되도록 해야 한다. </p>
 
+---
+
+```java
+package com.example.hello.codingTest;
+
+import java.io.*;
+import java.util.StringTokenizer;
+
+public class Main {
+
+  static int k = 0;
+  static long max = 0;
+  static long min = 9999999999L;
+  static String maxSring = "";
+  static String minSring = "";
+  static String[] inequalities;
+  static int[] visited;
+  static boolean[] usedNumber;
+
+  public static void main(String[] args) throws IOException{
+//    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+//
+//    k = Integer.parseInt(br.readLine());
+//    StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+//
+//    inequalities = new String[k];
+//    for (int i = 0; i < k; i++) {
+//      inequalities[i] = st.nextToken();
+//    }
+
+    k = 2;
+    inequalities = new String[]{"<", "<"};
+
+    k = 9;
+    inequalities = new String[]{">" ,"<" ,"<" ,"<" ,">" ,">" ,">" ,"<" ,"<"};
+
+    visited = new int[k + 1];
+    usedNumber = new boolean[10];
+
+    for (int i = 0; i < 10; i++) {
+      visited[0] = i;
+      usedNumber[i] = true;
+      dfs(i, 0);
+      usedNumber[i] = false;
+    }
+
+    System.out.println(maxSring);
+    System.out.println(minSring);
+  }
+
+  static void dfs(int num, int idx) {
+
+    if (idx == k) {
+      visited[k] = num;
+      String total = "";
+      for (int i = 0; i < visited.length; i++) {
+        total += visited[i];
+      }
+      long total_int = Long.parseLong(total);
+      max = Math.max(max, total_int);
+      if (max == total_int) maxSring = total;
+      min = Math.min(min, total_int);
+      if (min == total_int) minSring = total;
+      return;
+    }
+
+    String inequality = inequalities[idx];
+
+    if (inequality == "<") {
+      for (int i = num + 1; i < 10; i++) {
+        if (usedNumber[i] == false) {
+          visited[idx + 1] = i;
+          usedNumber[i] = true;
+          dfs(i, idx + 1);
+          usedNumber[i] = false;
+        }
+      }
+    } else {
+      for (int i = 0; i < num; i++) {
+        if (usedNumber[i] == false) {
+          visited[idx + 1] = i;
+          usedNumber[i] = true;
+          dfs(i, idx + 1);
+          usedNumber[i] = false;
+        }
+      }
+    }
+  }
+}
+```
+같은 풀이인거 같은데 이건 틀리다
