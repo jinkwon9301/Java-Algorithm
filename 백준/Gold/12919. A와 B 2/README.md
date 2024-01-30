@@ -35,3 +35,69 @@
 
  <p>S를 T로 바꿀 수 있으면 1을 없으면 0을 출력한다.</p>
 
+---
+
+```java
+import java.io.*;
+
+public class Main {
+
+  static StringBuffer S;
+  static String T = "";
+  static boolean isPossible = false;
+
+  public static void main(String[] args) throws IOException {
+    // 입력 값 받기
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+    S = new StringBuffer(br.readLine());
+    T = br.readLine();
+
+//    S = new StringBuffer("A");
+//    T = "BABA";
+//
+//    S = new StringBuffer("BAAAAABAA");
+//    T = "BAABAAAAAB";
+//
+//    S = new StringBuffer("A");
+//    T = "ABBA";
+
+    dfs(S);
+
+    if (isPossible) {
+      System.out.println(1);
+      return;
+    }
+
+    System.out.println(0);
+  }
+
+  static void dfs(StringBuffer sb) {
+    // str의 길이가 T의 길이가 되면 종료
+    if (sb.length() == T.length()) {
+      if (sb.toString().equals(T)) isPossible = true;
+      return;
+    }
+
+    // A를 추가하거나
+    dfs(sb.append("A"));
+    // 탐색 끝나면 원상복구
+    sb.deleteCharAt(sb.length() - 1);
+
+    // B를 추가하고 뒤집기
+    dfs(sb.append("B").reverse());
+    // 탐색 끝나면 원상복구
+    sb.reverse().deleteCharAt(sb.length() - 1);
+  }
+}
+```
+처음 풀었던 풀이
+
+S → T 로 가려고 했다.
+그러면 A를 추가하는 경우, B를 추가하고 뒤집는 경우 모두 거쳐야 하기 때문에 2⁵⁰ 의 경우의 수가 나온다. → 시간 초과
+
+T → S 로 가면
+T의 마지막이 A인 경우만 A를 뺄 수 있고
+T의 처음이 B인 경우만 뒤집고 B를 뺄 수 있다.
+경우의 수를 줄일 수 있다.
