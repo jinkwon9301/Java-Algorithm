@@ -124,4 +124,100 @@ public class Main {
 }
 ```
 
+완전탐색으로 시간초과 났던 기존 코드
+```java
+// 완전탐색 O(N²) -> 30만 * 30만 -> 시간초과
+package com.example.hello;
+
+import java.io.*;
+import java.util.*;
+
+public class Practice {
+
+  static StringTokenizer st;
+  static int N = 0;
+  static int K = 0;
+  static Integer[][] MV; // '무게-가격'을 담을 배열
+  static Integer[] C; // 배당 최대무게 배열
+  static boolean[] visited;
+  static int result;
+
+  public static void main(String[] args) throws IOException {
+//    // 입력 값 받기
+//    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+//
+//    st = new StringTokenizer(br.readLine(), " ");
+//    N = Integer.parseInt(st.nextToken());
+//    K = Integer.parseInt(st.nextToken());
+//
+//    //  초기화
+//    MV = new Integer[N][2];
+//    C = new Integer[K];
+//    visited = new boolean[N];
+//
+//    for (int i = 0; i < N; i++) {
+//      st = new StringTokenizer(br.readLine(), " ");
+//      Integer[] mv = {Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())};
+//      MV[i] = mv;
+//    }
+//
+//    for (int i = 0; i < K; i++) {
+//      C[i] = Integer.parseInt(br.readLine());
+//    }
+
+    N = 2;
+    K = 1;
+    MV = new Integer[][]{
+        {5, 10},
+        {100, 100},
+    };
+    C = new Integer[]{11};
+    visited = new boolean[N];
+
+    N = 3;
+    K = 2;
+    MV = new Integer[][]{
+        {1, 65},
+        {5, 23},
+        {2, 99},
+    };
+    C = new Integer[]{10, 2};
+    visited = new boolean[N];
+
+    N = 4;
+    K = 3;
+    MV = new Integer[][]{
+        {1, 65},
+        {5, 23},
+        {2, 99},
+        {3, 105},
+    };
+    C = new Integer[]{10, 2, 4};
+    visited = new boolean[N];
+
+    // 가격 내림차순으로 MV 배열 정렬 (가격 높은순으로 보석 정렬)
+    Arrays.sort(MV, (a,b) -> b[1] - a[1]);
+
+    // 수용 무게 낮은 순으로 배낭배열 정렬
+    Arrays.sort(C, (a,b) -> a - b);
+
+    // 가치가 높은 보석을 무게가 낮은 배낭부터 차례로 배정해보자
+    for (int i = 0; i < N; i++) {
+      for (int j = 0; j < K; j++) {
+        // 아직 보석을 넣은 배낭이 아니라면 && 배낭이 해당 보석무게를 수용할 수 있다면
+        if (!visited[j] && MV[i][0] <= C[j]) {
+          // 보석을 배낭에 넣고 무게를 추가한다.
+          visited[j] = true;
+          result += MV[i][1];
+          break;
+        }
+      }
+    }
+
+    System.out.println(result);
+  }
+}
+```
+
 출처 : [[BOJ] 백준 1202번 : 보석 도둑 (JAVA)](https://steady-coding.tistory.com/56)
