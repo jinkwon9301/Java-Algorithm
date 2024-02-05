@@ -1,66 +1,72 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
- 
+
 public class Main {
- 
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st = new StringTokenizer(br.readLine());
- 
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
- 
-        int[] order = new int[K];
-        st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < K; i++) {
-            order[i] = Integer.parseInt(st.nextToken());
-        }
- 
-        boolean[] use = new boolean[101];
-        int put = 0;
-        int ans = 0;
-        for (int i = 0; i < K; i++) {
-            int temp = order[i];
- 
-            if (!use[temp]) { // 콘센트가 꽂혀있지 않은 경우
-                if (put < N) { // 콘센트를 꽂을 공간이 있는 경우
-                    use[temp] = true;
-                    put++;
-                } else { // 콘센트를 꽂을 공간이 없는 경우
-                    ArrayList<Integer> arrList = new ArrayList<>();
-                    for (int j = i; j < K; j++) { // 현재 꽂혀 있는 콘센트가 나중에도 사용되는지 확인.
-                        if (use[order[j]] && !arrList.contains(order[j])) {
-                            arrList.add(order[j]);
-                        }
-                    }
- 
-                    if (arrList.size() != N) { // 나중에도 사용되는 콘센트가 구멍의 개수보다 작을 경우.
-                        for (int j = 0; j < use.length; j++) {
-                            if (use[j] && !arrList.contains(j)) { // 그 콘센트를 제거.
-                                use[j] = false;
-                                break;
-                            }
-                        }
-                    } else { // 현재 꽂혀 있는 모든 콘센트가 나중에도 사용될 경우
-                        int remove = arrList.get(arrList.size() - 1); // 가장 마지막에 사용될 콘센트를 제거.
-                        use[remove] = false;
-                    }
- 
-                    use[temp] = true;
-                    ans++;
-                }
-            }
-        }
- 
-        bw.write(ans + "\n");
-        bw.flush();
-        bw.close();
-        br.close();
+
+  static int N = 0;
+  static int K = 0;
+  static StringTokenizer st;
+  static int[] order;
+  static boolean[] use;
+  static int useCount;
+  static int answer;
+
+  public static void main(String[] args) throws IOException {
+    // 입력 값 받기
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+    st = new StringTokenizer(br.readLine(), " ");
+    N = Integer.parseInt(st.nextToken());
+    K = Integer.parseInt(st.nextToken());
+
+    // 초기화
+    order = new int[K];
+    st = new StringTokenizer(br.readLine(), " ");
+    for (int i = 0; i < K; i++) {
+      order[i] = Integer.parseInt(st.nextToken());
     }
- 
+    use = new boolean[101];
+
+    for (int i = 0; i < K; i++) {
+      int cord = order[i];
+
+      if (!use[cord]) {
+        if (useCount < N) {
+          use[cord] = true;
+          useCount++;
+        } 
+        
+        else {
+          ArrayList<Integer> list = new ArrayList<>();
+          for (int j = i + 1; j < K; j++) {
+            int nCord = order[j];
+            if (use[nCord] && !list.contains(nCord)) {
+              list.add(nCord);
+            }
+          }
+          
+          if (list.size() != N) {
+            for (int j = 0; j < use.length; j++) {
+              if (use[j] && !list.contains(j)) {
+                use[j] = false;
+                break;
+              }
+            }    
+          } 
+          
+          else {
+            Integer remove = list.get(list.size() - 1);
+            use[remove] = false;
+          }
+
+          use[cord] = true;
+          answer++;
+        }
+      }
+    }
+
+    System.out.println(answer);
+  }
 }
