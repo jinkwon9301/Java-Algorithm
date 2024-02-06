@@ -38,3 +38,12 @@
 
  <p>첫 번째 줄에 교준이가 필요한 최소 금액을 출력한다.</p>
 
+---
+
+![Screenshot 2024-02-06 at 2 25 58 PM](https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/f7e8c89c-424c-4073-945a-74b47658ae11)
+![Screenshot 2024-02-06 at 2 26 06 PM](https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/ce893c67-e83a-421a-8290-720b76b7e4a1)
+<img width="810" alt="Screenshot 2024-02-06 at 2 58 06 PM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/21dba5fd-b4aa-45b5-a31f-b73d252cdff2">
+<img width="646" alt="Screenshot 2024-02-06 at 2 58 17 PM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/10409bbe-13e2-4966-ad18-a824684cfd59">
+
+출처 : [https://edder773.tistory.com/203]([백준 18185] 라면 사기 (Small) (python))
+출처 : [https://hsdevelopment.tistory.com/540](18185번 라면 사기 (Small))
