@@ -45,5 +45,7 @@
 <img width="810" alt="Screenshot 2024-02-06 at 2 58 06 PM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/21dba5fd-b4aa-45b5-a31f-b73d252cdff2">
 <img width="646" alt="Screenshot 2024-02-06 at 2 58 17 PM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/10409bbe-13e2-4966-ad18-a824684cfd59">
 
+i, i+1, i+2 를 조사할때 i+1 > i+2 인 경우를 조심해서 처리해야 한다는 아이디어가 핵심이다.
+
 출처 : [https://edder773.tistory.com/203] ([백준 18185] 라면 사기 (Small) (python))
 출처 : [https://hsdevelopment.tistory.com/540] (18185번 라면 사기 (Small))
