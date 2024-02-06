@@ -40,3 +40,11 @@
 
  <p>욱제가 트램펄린으로 최대한 많은 별똥별을 튕겨낼 때, 지구에 부딪히는 별똥별의 개수를 출력한다.</p>
 
+---
+
+![Screenshot 2024-02-06 at 5 37 58 PM](https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/6dd168bf-128b-4fd1-9b8a-f58ac09040f0)
+![Screenshot 2024-02-06 at 5 38 06 PM](https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/fe0bd969-3214-4609-bba3-8f4873e994df)
+
+두 별똥별 낙하지점의 교차점을 중심으로 좌하단 L 영역을 조사한다는 아이디어가 핵심이다.
+
+출처 : [BOJ: 14658번: 하늘에서 별똥별이 빗발친다 Java](https://velog.io/@dot2__/BOJ-14658%EB%B2%88-%ED%95%98%EB%8A%98%EC%97%90%EC%84%9C-%EB%B3%84%EB%98%A5%EB%B3%84%EC%9D%B4-%EB%B9%97%EB%B0%9C%EC%B9%9C%EB%8B%A4-Java)
