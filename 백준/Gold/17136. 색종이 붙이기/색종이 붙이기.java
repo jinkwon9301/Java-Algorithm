@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 public class Main {
   static int[][] map;
   static int[] paper = {0, 5, 5, 5, 5, 5};
-  static int ans = Integer.MAX_VALUE;
+  static int min = Integer.MAX_VALUE;
 
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,76 +22,86 @@ public class Main {
       }
     }
 
+//    map = new int[][] {
+//        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+//        {0, 1, 1, 1, 1, 1, 0, 0, 0, 0},
+//        {0, 1, 1, 1, 1, 1, 0, 0, 0, 0},
+//        {0, 0, 1, 1, 1, 1, 0, 0, 0, 0},
+//        {0, 0, 1, 1, 1, 1, 0, 0, 0, 0},
+//        {0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+//        {0, 1, 1, 1, 0, 1, 1, 1, 1, 1},
+//        {0, 1, 1, 1, 0, 1, 1, 1, 1, 1},
+//        {0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
+//        {0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
+//    };
+
     DFS(0, 0, 0);
 
-    if (ans == Integer.MAX_VALUE) {
-      ans = -1;
+    if (min == Integer.MAX_VALUE) {
+      min = -1;
     }
 
-    bw.write(ans + "\n");
+    bw.write(min + "\n");
     bw.close();
     br.close();
   }
 
-  // DFS + 백트래킹
   public static void DFS(int x, int y, int cnt) {
-    // 맨 끝점에 도달하였을 경우, ans와 cnt 비교하고 종료.
-    if (x >= 9 && y > 9) {
-      ans = Math.min(ans, cnt);
+
+    // 종료 조건 (끝에 map 끝에 다다르면 종료한다.)
+    if (x == 9 && y == 10) {
+      min = Math.min(Main.min, cnt);
       return;
     }
 
-    // 최솟값을 구해야하는데 ans보다 cnt가 커지는 순간
-    // 더 이상 탐색할 필요가 없어짐.
-    if (ans <= cnt) {
+    // 만약 cnt가 min보다 크거나 같아도 종료 (더하는건 의미가 없기 때문)
+    if (min <= cnt) {
       return;
     }
 
-    // 아래 줄로 이동.
-    if (y > 9) {
+    // 오른쪽 끝까지 갔다면 아래로 한칸 이동한다.
+    if (y == 10) {
       DFS(x + 1, 0, cnt);
+      // 한칸 내려줄 때는 return 해줘야지 아니면 끝까지 탐색한 후에 y == 10인 상태로 계속 진행되서 map[][10]되서 ArrayIndexOutOfBound 에러 터짐
       return;
     }
 
     if (map[x][y] == 1) {
-      for (int i = 5; i >= 1; i--) {
+      for (int i = 1; i <= 5; i++) {
+        // 색종이가 남아있으며 && 색종이를 붙일 수 있으면 (map범위를 벗어나지 않으면)
         if (paper[i] > 0 && isAttach(x, y, i)) {
-          attach(x, y, i, 0); // 색종이를 붙임.
+          // 색종이를 붙인다.
+          attach(x, y, i, 0);
           paper[i]--;
+          // 오른쪽으로 한칸 이동해서 다음을 탐색한다.
           DFS(x, y + 1, cnt + 1);
-          attach(x, y, i, 1); // 색종이를 다시 뗌.
+          // 탐색을 마치면 색종이를 뗀다.
+          attach(x, y, i, 1);
           paper[i]++;
         }
       }
-    } else { // 오른쪽으로 이동.
+    }
+    // map[x][y] == 0 이라면 오른쪽으로 한칸 이동해서 탐색
+    else {
       DFS(x, y + 1, cnt);
     }
   }
 
-  // 색종이를 붙이는 함수.
-  public static void attach(int x, int y, int size, int state) {
-    for (int i = x; i < x + size; i++) {
-      for (int j = y; j < y + size; j++) {
+  private static void attach(int x, int y, int length, int state) {
+    for (int i = x; i < x + length; i++) {
+      for (int j = y; j < y + length; j++) {
         map[i][j] = state;
       }
     }
   }
 
-  // 색종이를 붙일 수 있는지 확인.
-  public static boolean isAttach(int x, int y, int size) {
-    for (int i = x; i < x + size; i++) {
-      for (int j = y; j < y + size; j++) {
-        if (i < 0 || i >= 10 || j < 0 || j >= 10) {
-          return false;
-        }
-
-        if (map[i][j] != 1) {
-          return false;
-        }
+  private static boolean isAttach(int x, int y, int length) {
+    for (int i = x; i < x + length; i++) {
+      for (int j = y; j < y + length; j++) {
+        if (i >= 10 || j >= 10 || map[i][j] == 0) return false;
       }
     }
     return true;
   }
-
 }
 
