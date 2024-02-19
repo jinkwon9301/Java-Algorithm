@@ -117,6 +117,7 @@
 - [SILVER I] 영역 구하기 - 2583 (위와 비슷한 문제 : 직사각형 영역을 false로 바꿔주고 dfs 사방탐색한다.)
 - [GOLD V] 적록색약 - 10026 (전형적인 사방탐색 dfs 문제)
 - [GOLD V] 숫자고르기 - 2668 (순환하면 두 집합에 모두 포함되는 것, 스스로 해결 못함🔥)
+- [GOLD IV] 알파벳 - 1987 (visited[]을 알파벳 대문자를 방문할 수 있도록 boolean visited = new boolean[91]로 설정한다.)
 
 
 ### 📚 Two-Pointer
