@@ -143,7 +143,8 @@
 - [GOLD IV] 카드 정렬하기 - 1715 (파일 합치기 3와 같은 문제)
 - [GOLD III] 크게 만들기 - 1715 (Stack, 스스로 해결 못함 🔥)
 - [GOLD II] 보석 도둑 - 1202 (PriorityQueue을 이용해서 완전탐색의 비효율 해결, 결과값 타입 int -> long 주의, jewelry class 만들어서 해결, 스스로 해결 못함 🔥)
-- [SILVER IIII] 카드2 - 2164 (queue 자료구조)
+- [SILVER IIII] 카드 2 - 2164 (queue 자료구조)
+- [SILVER IIII] 스택 2 - 28278 (System.out.println() 사용하면 시간초과, Stringbuilder로 풀자)
 
 ### 📚 정렬
 #### 프로그래머스
