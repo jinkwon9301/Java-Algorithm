@@ -146,6 +146,7 @@
 - [GOLD II] 보석 도둑 - 1202 (PriorityQueue을 이용해서 완전탐색의 비효율 해결, 결과값 타입 int -> long 주의, jewelry class 만들어서 해결, 스스로 해결 못함 🔥)
 - [SILVER IIII] 카드 2 - 2164 (queue 자료구조)
 - [SILVER IIII] 스택 2 - 28278 (System.out.println() 사용하면 시간초과, Stringbuilder로 풀자)
+- [SILVER IIII] 괄호 - 9012 (stack)
 
 ### 📚 정렬
 #### 프로그래머스
