@@ -149,6 +149,7 @@
 - [SILVER IV] 카드 2 - 2164 (queue 자료구조)
 - [SILVER IV] 스택 2 - 28278 (System.out.println() 사용하면 시간초과, Stringbuilder로 풀자)
 - [SILVER IV] 괄호 - 9012 (stack)
+- [SILVER IV] Router - 15828 (queue)
 
 
 ### 📚 정렬
