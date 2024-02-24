@@ -198,6 +198,7 @@
 - Lv2. [3차] 압축 (map, list.stream().mapToInt(i -> i).toArray())
 - #### 백준
 - [SILVER IV] 인사성 밝은 곰곰이 - 25192 (map을 활용)
+- [SILVER IV] 붙임성 좋은 총총이 - 26069 (map을 활용)
 
 
 ### 📚 DP
