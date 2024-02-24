@@ -5,7 +5,7 @@ import java.util.Queue;
 public class Main {
   static int size;
   static Queue<Integer> queue = new LinkedList<>();
-  static String answer = "";
+  static StringBuilder sb = new StringBuilder();
 
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,9 +27,16 @@ public class Main {
       queue.offer(info);
     }
 
-    while (!queue.isEmpty()) {
-      answer += queue.poll() + " ";
+    if (queue.isEmpty()) {
+      System.out.println("empty");
+      return;
     }
+
+    while (!queue.isEmpty()) {
+      sb.append(queue.poll() + " ");
+    }
+
+    String answer = sb.toString();
 
     System.out.println(answer.substring(0, answer.length() - 1));
   }
