@@ -26,3 +26,25 @@
 
  <p>첫째 줄에는 입력으로 주어진 두 수의 최대공약수를, 둘째 줄에는 입력으로 주어진 두 수의 최소 공배수를 출력한다.</p>
 
+---
+
+```java
+// 유클리드 호제법
+public class GCD_LCM {
+  // 최대공약수
+  public static int gcd(int a, int b) {
+    if (b == 0) {
+      return a;
+    } else {
+      return gcd(b, a % b);
+    }
+  }
+
+  // 최소공배수
+  public static int lcm(int a, int b) {
+    int gcd = gcd(a, b);
+    return (a * b) / gcd;
+  }
+}
+
+```
