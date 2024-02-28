@@ -130,6 +130,7 @@
 - [SILVER II] 촌수계산 - 2644 (Gragh BFS 자료구조를 응용해서 해결)
 - [SILVER II] DFS와 BFS - 1260 (Graph 자료구조를 응용하여 해결)
 - [SILVER II] 유기농 배추 - 1012 (DFS, BFS 다 풀어봄)
+- [SILVER II] 미로 탐색 - 2178 (BFS, 왜 DFS는 시간초과가 날까?)
 
 
 ### 📚 Two-Pointer
