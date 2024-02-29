@@ -160,6 +160,7 @@
 - [SILVER IV] 스택 2 - 28278 (System.out.println() 사용하면 시간초과, Stringbuilder로 풀자)
 - [SILVER IV] 괄호 - 9012 (stack)
 - [SILVER IV] Router - 15828 (queue)
+- [SILVER V] 요세푸스 문제 0 - 11866 (queue, 스스로 해결 못함🔥)
 
 
 ### 📚 정렬
