@@ -242,5 +242,88 @@ public class Main {
 BFS
 
 ```java
+// BFS
+import java.io.*;
+import java.util.LinkedList;
+import java.util.StringTokenizer;
+
+public class Main {
+  static int N, height, maxHeight, count, maxCount;
+  static int[][] map;
+  static boolean[][] visited;
+  static StringTokenizer st;
+  static int[] dx = {0, 0, 1, -1};
+  static int[] dy = {1, -1, 0, 0};
+
+  public static void main(String[] args) throws Exception {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+    N = Integer.parseInt(br.readLine());
+
+    // 초기화 작업
+    map = new int[N][N];
+    for (int i = 0; i < N; i++) {
+      st = new StringTokenizer(br.readLine(), " ");
+      for (int j = 0; j < N; j++) {
+        height = Integer.parseInt(st.nextToken());
+        maxHeight = Math.max(maxHeight, height);
+        map[i][j] = height;
+      }
+    }
+
+    // maxCount를 구한다.
+    for (int i = 0; i < maxHeight; i++) {
+      // visited, count 초기화
+      visited = new boolean[N][N];
+      count = 0;
+      for (int j = 0; j < N; j++) {
+        for (int k = 0; k < N; k++) {
+          // 아직 방문하지 않았고 높이가 수심보다 높으면 방문해서 탐색한다.
+          if (!visited[j][k] && map[j][k] > i) {
+            count++;
+            bfs(j, k, i);
+          }
+        }
+      }
+      maxCount = Math.max(maxCount, count);
+    }
+
+    System.out.println(maxCount);
+  }
+
+  private static void bfs(int x, int y, int water) {
+
+    // 현재 지역을 방문한다.
+    visited[x][y] = true;
+
+    // BFS 탐색을 위한 queue 생성
+    LinkedList<Integer[]> queue = new LinkedList<>();
+    queue.add(new Integer[]{x, y});
+
+    while (!queue.isEmpty()) {
+      Integer[] location = queue.poll();
+      x = location[0];
+      y = location[1];
+
+      for (int i = 0; i < 4; i++) {
+        int nx = x + dx[i];
+        int ny = y + dy[i];
+
+        if (validBound(nx, ny) && !visited[nx][ny] && map[nx][ny] > water) {
+          visited[nx][ny] = true;
+          queue.add(new Integer[]{nx, ny});
+        }
+      }
+    }
+  }
+
+  private static boolean validBound(int x, int y) {
+    if (0 <= x && x < N && 0 <= y && y < N) {
+      return true;
+    }
+    return false;
+  }
+}
 
 ```
