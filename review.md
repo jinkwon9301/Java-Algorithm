@@ -132,7 +132,7 @@
 - [SILVER II] 유기농 배추 - 1012 (DFS, BFS 다 풀어봄)
 - [SILVER II] 미로 탐색 - 2178 (BFS, 왜 DFS는 시간초과가 날까?)
 - [SILVER I] 나이트의 이동 - 7562 (BFS, DFS보다 가까이에 있는 것 먼저 찾는게 빠르기 때문에 BFS로 해결)
-- [SILVER I] 안전 영역 - 2468 (BFS로 해결해봤다, 이전에 DFS로 해결해 봄)
+- [SILVER I] 안전 영역 - 2468 (BFS로 해결해봤다, 이전에 DFS로 해결해 봄)
 
 
 ### 📚 Two-Pointer
