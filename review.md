@@ -164,6 +164,7 @@
 - [SILVER IV] 괄호 - 9012 (stack)
 - [SILVER IV] Router - 15828 (queue)
 - [SILVER V] 요세푸스 문제 0 - 11866 (queue, 스스로 해결 못함🔥)
+- [SILVER IV] 덱 - 10866 (dequeue → LinkedList 로 구현)
 
 
 ### 📚 정렬
