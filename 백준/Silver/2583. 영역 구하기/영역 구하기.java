@@ -1,8 +1,5 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
   static int M, N, K, count;
@@ -56,7 +53,7 @@ public class Main {
       for (int j = 0; j < N; j++) {
         count = 0;
         if (!visited[i][j] && map[i][j]) {
-          dfs(i, j);
+          bfs(i, j);
           list.add(count);
         }
       }
@@ -73,15 +70,27 @@ public class Main {
     System.out.println(result.substring(0, result.length() - 1));
   }
 
-  private static void dfs(int x, int y) {
+  private static void bfs(int x, int y) {
     visited[x][y] = true;
     count++;
 
-    for (int i = 0; i < 4; i++) {
-      int nx = x + dx[i];
-      int ny = y + dy[i];
-      if (validBound(nx, ny) && !visited[nx][ny] && map[nx][ny]) {
-        dfs(nx, ny);
+    LinkedList<Integer[]> queue = new LinkedList<>();
+    queue.add(new Integer[]{x, y});
+
+    while (!queue.isEmpty()) {
+      Integer[] loacation = queue.poll();
+      x = loacation[0];
+      y = loacation[1];
+
+      for (int i = 0; i < 4; i++) {
+        int nx = x + dx[i];
+        int ny = y + dy[i];
+
+        if (validBound(nx, ny) && !visited[nx][ny] && map[nx][ny]) {
+          queue.add(new Integer[]{nx, ny});
+          visited[nx][ny] = true;
+          count++;
+        }
       }
     }
   }
