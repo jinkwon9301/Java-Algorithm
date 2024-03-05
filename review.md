@@ -134,6 +134,7 @@
 - [SILVER I] 나이트의 이동 - 7562 (BFS, DFS보다 가까이에 있는 것 먼저 찾는게 빠르기 때문에 BFS로 해결)
 - [SILVER I] 안전 영역 - 2468 (BFS로 해결해봤다, 이전에 DFS로 해결해 봄)
 - [SILVER I] 영역 구하기 - 2583 (BFS로 해결해봤다, 이전에 DFS로 해결해 봄)
+- [SILVER I] 숨바꼭질 - 1697 (BFS로 해결)
 
 
 ### 📚 Two-Pointer
