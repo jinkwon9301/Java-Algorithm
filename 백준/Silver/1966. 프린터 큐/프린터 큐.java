@@ -13,6 +13,7 @@ class Main {
     testCaseNum = Integer.parseInt(br.readLine());
 
     for (int i = 0; i < testCaseNum; i++) {
+      // LinkedList는 get() 사용가능, Queue는 get() 사용 불가능
       queue = new LinkedList<>();
 
       st = new StringTokenizer(br.readLine(), " ");
