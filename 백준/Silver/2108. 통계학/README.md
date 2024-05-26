@@ -41,3 +41,6 @@
 
 <p>넷째 줄에는 범위를 출력한다.</p>
 
+---
+
+참고 : [Stranger's LAB](https://st-lab.tistory.com/108)
