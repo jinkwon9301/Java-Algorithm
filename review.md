@@ -169,6 +169,7 @@
 - [SILVER IV] 덱 - 10866 (dequeue → LinkedList 로 구현)
 - [SILVER II] 스택 수열 - 1874 (스택)
 - [SILVER III] 프린터 큐 - 1966 (queue, 스스로 해결 못함🔥 : Queue 클래스에는 get()이 없지만 LinkedList 클래스에는 get()이 있다.)
+- [SILVER IV] 제로 - 10773 (stack)
 
 
 ### 📚 정렬
