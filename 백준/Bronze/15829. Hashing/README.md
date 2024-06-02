@@ -44,3 +44,7 @@
 
  <p>문제에서 주어진 해시함수와 입력으로 주어진 문자열을 사용해 계산한 해시 값을 정수로 출력한다.</p>
 
+---
+<img width="623" alt="Screenshot 2024-06-02 at 4 30 08 PM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/85321797-e970-46c1-b7fc-273cd4717dc3">
+
+<img width="623" alt="Screenshot 2024-06-02 at 4 30 17 PM" src="https://github.com/jinkwon9301/Java-Algorithm/assets/77374066/ebccea5d-8908-4a6a-a086-acb3ea627b9b">
