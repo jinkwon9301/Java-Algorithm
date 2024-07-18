@@ -144,7 +144,7 @@
 - Lv2. 연속된 부분 수열의 합 (투 포인터)
 
 
-### 📚 Queue & Stack
+### 📚 Queue & Stack & Heap
 #### 프로그래머스
 - Lv2. 기능개발 (큐)
 - Lv2. [1차] 캐시 (LRU, LinkedList)
@@ -170,6 +170,7 @@
 - [SILVER II] 스택 수열 - 1874 (스택)
 - [SILVER III] 프린터 큐 - 1966 (queue, 스스로 해결 못함🔥 : Queue 클래스에는 get()이 없지만 LinkedList 클래스에는 get()이 있다.)
 - [SILVER IV] 제로 - 10773 (stack)
+- [SILVER II] 최소 힙 - 1927 (Heap : 최소 힙, PriorityQueue : 우선순위 큐가 힙으로 구성되어 있다.)
 
 
 ### 📚 정렬
