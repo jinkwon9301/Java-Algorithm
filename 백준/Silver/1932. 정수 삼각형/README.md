@@ -36,3 +36,6 @@
 
  <p>첫째 줄에 합이 최대가 되는 경로에 있는 수의 합을 출력한다.</p>
 
+---
+
+참고 : [stranger's lab](https://st-lab.tistory.com/131)
