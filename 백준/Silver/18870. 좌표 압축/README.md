@@ -33,5 +33,5 @@
  <p>첫째 줄에 X'<sub>1</sub>, X'<sub>2</sub>, ..., X'<sub>N</sub>을 공백 한 칸으로 구분해서 출력한다.</p>
 
 ---
-`정렬 & distinct → 바이너리서치` 말고도 다른 풀이가 있으니 참고하자 <br />
+문제는 `정렬 & distinct → 바이너리서치` 로 풀이 가능하지만 coordinate Compression (좌표압축)에 대한 개념을 다음 블로그에서 볼 수 있다. <br />
 참고 :[Stranger's Lab](https://st-lab.tistory.com/279)
