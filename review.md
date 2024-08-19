@@ -248,6 +248,7 @@
 - [GOLD II] 성냥개비 - 3687 (key :성냥개비 사용 개수 - value: 만들 수 있는 최소 숫자, DP, 2시간 걸림)
 - [SILVER III] 2×n 타일링 - 11726 (스스로 해결 못함 🔥)
 - [SILVER I] 정수 삼각형 - 1932
+- [SILVER III] Four Squares - 17626 (스스로 해결 못함 🔥, dp[i] = min(dp[i - j * j]) + 1)
 
 
 ### 📚 Math
