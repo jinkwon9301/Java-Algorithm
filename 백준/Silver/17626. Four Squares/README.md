@@ -28,3 +28,6 @@
 
  <p>출력은 표준출력을 사용한다. 합이 <em>n</em>과 같게 되는 제곱수들의 최소 개수를 한 줄에 출력한다.</p>
 
+---
+
+참고 : [17626 Four Squares](https://steady-coding.tistory.com/18)
