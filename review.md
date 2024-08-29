@@ -261,6 +261,11 @@
 - [SILVER V] 팩토리얼 0의 개수 - 1676 (5를 센다)
 
 
+### 📚 Math
+#### 프로그래머스
+#### 백준
+- [SILVER I] IOIOI - 5525
+
 ### 📚 ETC
 #### 프로그래머스
 - Lv2. 튜플 (map.put(i, map.getOrDefault(i, 0) + 1))
