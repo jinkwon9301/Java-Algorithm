@@ -255,6 +255,7 @@
 - [SILVER III] 2×n 타일링 - 11726 (스스로 해결 못함 🔥)
 - [SILVER I] 정수 삼각형 - 1932
 - [SILVER III] Four Squares - 17626 (스스로 해결 못함 🔥, dp[i] = min(dp[i - j * j]) + 1)
+- [SILVER III] 2xn 타일링 2 - 11727 (스스로 해결 못함 🔥, dp[i] = dp[i-1] + 2 * dp[i-2])
 
 
 ### 📚 Math
