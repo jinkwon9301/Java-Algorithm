@@ -307,3 +307,7 @@
 - [BRONZE III] 해싱 - 15829 (스스로 해결 못함 🔥 - 모듈러 연산의 분배법칙 가능)
 - [SILVER III] 누적 합 구하기 4 - 11659 (누적합)
 ---
+
+# SQL 문제
+## 프로그래머스
+- 재구매가 일어난 상품과 회원 리스트 구하기 (GROUP BY, HAVING, DISTINCT, SUBQUERY)
