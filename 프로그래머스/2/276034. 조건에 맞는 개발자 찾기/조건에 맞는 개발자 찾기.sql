@@ -1,0 +1,7 @@
+-- 비트연산 & (지피티에게 비트연산 &에 대해 물어볼 것)
+SELECT ID, EMAIL, FIRST_NAME, LAST_NAME
+FROM DEVELOPERS
+WHERE SKILL_CODE & 256 != 0 
+OR    SKILL_CODE & 1024 != 0 
+ORDER BY ID
+;
