@@ -12,11 +12,11 @@
 
 ### 채점결과
 
-합계: 18.0 / 100.0
+합계: 100.0 / 100.0
 
 ### 제출 일자
 
-2024년 12월 03일 21:57:34
+2024년 12월 03일 22:11:49
 
 ### 문제 설명
 
@@ -238,18 +238,3 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
-> 
-
-```mysql
-        SELECT DISTINCT a.ID, a.EMAIL, a.FIRST_NAME, a.LAST_NAME
-        FROM DEVELOPERS a, SKILLCODES b
-        WHERE 
-            (a.SKILL_CODE & b.CODE) > 0
-             AND b.NAME IN ("Python", "C#")
-        ORDER BY a.ID;
-```
-이게 정답이다.
-
-        a.SKILL_CODE & b.CODE) > 0    →
-        AND b.NAME IN ("Python", "C#") →
-        DISTINCT
