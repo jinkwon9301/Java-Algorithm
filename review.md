@@ -316,3 +316,4 @@
 - 대장균의 크기에 따라 분류하기 2 (NTILE(4) OVER (ORDER BY SIZE DESC))
 - 특정 세대의 대장균 찾기 (재귀쿼리)
 - 가격이 제일 비싼 식품의 정보 출력하기 (1. ORDER BY → LIMIT 1, 2. MAX함수 + 서브쿼리)
+- 물고기 종류 별 대어 찾기 (중첩 서브쿼리 이용 (FISH_TYPE, LENGTH) = (SUBQUERY))
