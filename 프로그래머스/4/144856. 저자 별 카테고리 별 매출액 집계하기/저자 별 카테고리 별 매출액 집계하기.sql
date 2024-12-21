@@ -1,3 +1,4 @@
+# GPT 통해서 해결
 SELECT 
     B.AUTHOR_ID, 
     A.AUTHOR_NAME, 
