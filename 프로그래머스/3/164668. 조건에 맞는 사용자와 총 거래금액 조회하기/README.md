@@ -1,6 +1,6 @@
 # [level 3] 조건에 맞는 사용자와 총 거래금액 조회하기 - 164668 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/164668?language=oracle) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/164668?language=mysql) 
 
 ### 성능 요약
 
@@ -16,11 +16,11 @@ Empty
 
 ### 제출 일자
 
-2023년 10월 6일 17:59:28
+2024년 12월 30일 21:41:48
 
 ### 문제 설명
 
-<p>다음은 중고 거래 게시판 정보를 담은 <code>USED_GOODS_BOARD</code> 테이블과 중고 거래 게시판 첨부파일 정보를 담은 <code>USED_GOODS_FILE</code> 테이블입니다. <code>USED_GOODS_BOARD</code> 테이블은 다음과 같으며 <code>BOARD_ID</code>, <code>WRITER_ID</code>, <code>TITLE</code>, <code>CONTENTS</code>, <code>PRICE</code>, <code>CREATED_DATE</code>, <code>STATUS</code>, <code>VIEWS</code>는 게시글 ID, 작성자 ID, 게시글 제목, 게시글 내용, 가격, 작성일, 거래상태, 조회수를 의미합니다.</p>
+<p>다음은 중고 거래 게시판 정보를 담은 <code>USED_GOODS_BOARD</code> 테이블과 중고 거래 게시판 사용자 정보를 담은 <code>USED_GOODS_USER</code> 테이블입니다. <code>USED_GOODS_BOARD</code> 테이블은 다음과 같으며 <code>BOARD_ID</code>, <code>WRITER_ID</code>, <code>TITLE</code>, <code>CONTENTS</code>, <code>PRICE</code>, <code>CREATED_DATE</code>, <code>STATUS</code>, <code>VIEWS</code>는 게시글 ID, 작성자 ID, 게시글 제목, 게시글 내용, 가격, 작성일, 거래상태, 조회수를 의미합니다.</p>
 <table class="table">
         <thead><tr>
 <th>Column name</th>
@@ -84,7 +84,7 @@ Empty
 <td>FALSE</td>
 </tr>
 <tr>
-<td>NICKANME</td>
+<td>NICKNAME</td>
 <td>VARCHAR(100)</td>
 <td>FALSE</td>
 </tr>
