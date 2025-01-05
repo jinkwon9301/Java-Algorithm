@@ -13,3 +13,22 @@ ORDER BY SCORE DESC
 LIMIT 1
 ;
 
+-- 윈도우함수 활용법
+# SELECT 
+#     TotalScores.SCORE, 
+#     E.EMP_NO,
+#     E.EMP_NAME,
+#     E.POSITION,
+#     E.EMAIL
+# FROM (
+#     SELECT 
+#         G.EMP_NO,
+#         SUM(G.SCORE) AS SCORE,
+#         ROW_NUMBER() OVER (ORDER BY SUM(G.SCORE) DESC) AS RN
+#     FROM HR_GRADE G
+#     WHERE G.YEAR = 2022
+#     GROUP BY G.EMP_NO
+# ) TotalScores
+# JOIN HR_EMPLOYEES E
+#     ON TotalScores.EMP_NO = E.EMP_NO
+# WHERE TotalScores.RN = 1;
