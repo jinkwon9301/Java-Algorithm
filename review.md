@@ -304,7 +304,7 @@
 - Lv0. 배열 만들기 2
 - Lv0. 주사위 게임 3
 #### 백준
-- [BRONZE III] 해싱 - 15829 (스스로 해결 못함 🔥 - 모듈러 연산의 분배법칙 가능)
+- [BRONZE III] 해싱 - 15829 (스스로 해결 못함 🔥 - 모듈러 연산의 분배법칙 가능)
 - [SILVER III] 누적 합 구하기 4 - 11659 (누적합)
 ---
 
@@ -328,3 +328,4 @@
 - 조건에 맞는 사원 정보 조회하기
 - 특정 조건을 만족하는 물고기별 수와 최대 길이 구하기 (집계함수를 사용할 땐 GROUP BY 사용해야 한다.)
 - 조회수가 가장 많은 중고거래 게시판의 첨부파일 조회하기 (WHERE b.VIEWS = (SELECT MAX(VIEWS) FROM USED_GOODS_BOARD))
+- 자동차 대여 기록 별 대여 금액 구하기 (DATEDIFF, CAST(REGEXP_SUBSTR(dp.DURATION_TYPE, '[0-9]+') AS UNSIGNED), ROW_NUMBER() OVER (PARTITION BY HISTORY_ID ORDER BY MIN_DAYS DESC) AS rn)
