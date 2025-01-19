@@ -327,3 +327,4 @@
 - 언어별 개발자 분류하기 (* 비트연산, WITH, CROSS JOIN)
 - 조건에 맞는 사원 정보 조회하기
 - 특정 조건을 만족하는 물고기별 수와 최대 길이 구하기 (집계함수를 사용할 땐 GROUP BY 사용해야 한다.)
+- 조회수가 가장 많은 중고거래 게시판의 첨부파일 조회하기 (WHERE b.VIEWS = (SELECT MAX(VIEWS) FROM USED_GOODS_BOARD))
