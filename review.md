@@ -330,3 +330,5 @@
 - 조회수가 가장 많은 중고거래 게시판의 첨부파일 조회하기 (WHERE b.VIEWS = (SELECT MAX(VIEWS) FROM USED_GOODS_BOARD))
 - 자동차 대여 기록 별 대여 금액 구하기 (DATEDIFF, CAST(REGEXP_SUBSTR(dp.DURATION_TYPE, '[0-9]+') AS UNSIGNED), ROW_NUMBER() OVER (PARTITION BY HISTORY_ID ORDER BY MIN_DAYS DESC) AS rn)
 - 특정 기간동안 대여 가능한 자동차들의 대여비용 구하기 (REGEXP, NOT IN)
+- 주문량이 많은 아이스크림들 조회하기
+
