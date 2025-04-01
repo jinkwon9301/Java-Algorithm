@@ -1,69 +1,76 @@
+import java.util.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.StringTokenizer;
 
-public class Main {
-  static int N, count;
-  static char[][] map;
+class Main {
+  static int N;
+  static int[][] field;
   static boolean[][] visited;
-  static int[] dx = {0, 0, 1, -1};
-  static int[] dy = {1, -1, 0, 0};
-  static List<Integer> list;
+  static PriorityQueue<Integer> pq = new PriorityQueue<>();
+  static int[] dx = {1, -1, 0, 0};
+  static int[] dy = {0, 0, -1, 1};
+  static StringTokenizer st;
+  static StringBuilder sb = new StringBuilder();
 
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
     N = Integer.parseInt(br.readLine());
+    field = new int[N][N];
+    visited = new boolean[N][N];
 
-    // 초기화
-    map = new char[N][N];
     for (int i = 0; i < N; i++) {
-      String row = br.readLine();
+      String line = br.readLine();
       for (int j = 0; j < N; j++) {
-        map[i][j] = row.charAt(j);
+        field[i][j] = line.charAt(j) - '0';
       }
     }
 
-    visited = new boolean[N][N];
-    list = new ArrayList<>();
-
-    // dfs 탐색
     for (int i = 0; i < N; i++) {
       for (int j = 0; j < N; j++) {
-        count = 0;
-        if (!visited[i][j] && map[i][j] == '1') {
-          dfs(i, j);
-          list.add(count);
+        if (field[i][j] == 1 && !visited[i][j]) {
+          bfs(new int[] {i, j});
         }
       }
     }
-    Collections.sort(list);
-    System.out.println(list.size());
-    for (Integer apartments : list) {
-      System.out.println(apartments);
+
+    sb.append(pq.size()).append("\n");
+    while (!pq.isEmpty()) {
+      sb.append(pq.poll()).append("\n");
     }
+    System.out.print(sb.toString());
   }
 
-  private static void dfs(int x, int y) {
-    visited[x][y] = true;
-    count++;
+  private static void bfs(int[] start) {
+    LinkedList<int[]> queue = new LinkedList<>();
+    queue.add(start);
+    visited[start[0]][start[1]] = true;
+    int count = 0;
 
-    for (int i = 0; i < 4; i++) {
-      int nx = x + dx[i];
-      int ny = y + dy[i];
-      if (validBound(nx, ny) && !visited[nx][ny] && map[nx][ny] == '1') {
-        dfs(nx, ny);
+    while (!queue.isEmpty()) {
+      int[] current = queue.poll();
+      int x = current[0];
+      int y = current[1];
+
+      count++;
+
+      for (int i = 0; i < 4; i++) {
+        int nx = x + dx[i];
+        int ny = y + dy[i];
+
+        if (checkValid(nx, ny) && field[nx][ny] == 1 && !visited[nx][ny]) {
+          queue.add(new int[] {nx, ny});
+          visited[nx][ny] = true;
+        }
       }
     }
+
+    pq.add(count);
   }
 
-  private static boolean validBound(int nx, int ny) {
-    if (0 <= nx && nx < N && 0 <= ny && ny < N) {
-      return true;
+  // 범위를 벗어나지 않는지 확인하는 메서드
+  private static boolean checkValid(int x, int y) {
+    if (x < 0 || x >= N || y < 0 || y >= N) {
+      return false;
     }
-    return false;
+    return true;
   }
 }
