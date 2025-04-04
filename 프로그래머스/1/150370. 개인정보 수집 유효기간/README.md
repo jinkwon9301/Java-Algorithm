@@ -217,3 +217,92 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+> 
+
+***
+
+📝 참고
+```java
+/*
+
+1. String.split(regex)에서 . 으로 분할하려면 → String.split("\\.")
+- .은 정규 표현식에서 모든 문자를 의미하므로, 이스케이프 문자 \\를 사용하여 .을 문자로 인식하게 해야 함
+
+2. 일수 비교는 년월일을 모두 일수로 변환하여 비교
+*/
+package com.example.hello.codingTest;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Programmers {
+
+//  static String today = "2022.05.19";
+//  static String[] terms = {"A 6", "B 12", "C 3"};
+//  static String[] privacies = {"2021.05.02 A", "2021.07.01 B", "2022.02.19 C", "2022.02.20 C"};
+
+  static String today = "2020.01.01";
+  static String[] terms = {"Z 3", "D 5"};
+  static String[] privacies = {"2019.01.01 D", "2019.11.15 Z", "2019.08.02 D", "2019.07.01 D", "2018.12.28 Z"};
+
+  public static void main(String[] args) {
+    Solution solution = new Programmers().new Solution();
+    int[] result = solution.solution(today, terms, privacies);
+    for (int i : result) {
+      System.out.print(i + " ");
+    }
+  }
+
+  class Solution {
+    public int[] solution(String today, String[] terms, String[] privacies) {
+      // 1. 오늘 날짜를 연, 월, 일로 나누기
+      String[] ymd = today.split("\\.");
+      int todayYear = Integer.parseInt(ymd[0]);
+      int todayMonth = Integer.parseInt(ymd[1]);
+      int todayDay = Integer.parseInt(ymd[2]);
+      // 1-1. 오늘 날짜 총 일수 계산
+      int totalDaysToday = todayYear * 12 * 28 + todayMonth * 28 + todayDay;
+
+      // 2. 약관 종류와 유효기간을 Map에 저장
+      Map<String, Integer> termMap = new HashMap<>();
+      for (String term : terms) {
+        String[] termInfo = term.split(" ");
+        String termType = termInfo[0];
+        String termPeriod = termInfo[1];
+        termMap.put(termType, Integer.parseInt(termPeriod));
+      }
+
+      // 3. 유효기간이 지난 개인정보를 저장할 리스트
+      List<Integer> expiredPrivacies = new ArrayList<>();
+      // 4. 유효기간이 지난 개인정보를 찾기
+      for (int i = 0; i < privacies.length; i++) {
+        String[] privacyInfo = privacies[i].split(" ");
+        String[] privacyYmd = privacyInfo[0].split("\\.");
+        int privacyYear = Integer.parseInt(privacyYmd[0]);
+        int privacyMonth = Integer.parseInt(privacyYmd[1]);
+        int privacyDay = Integer.parseInt(privacyYmd[2]);
+
+        String privacyType = privacyInfo[1];
+        Integer privacyPeriod = termMap.get(privacyType);
+
+        if (privacyPeriod != null) {
+          // 계약 체결일 총 일수 계산
+          int totalDaysPrivacy = privacyYear * 12 * 28 + privacyMonth * 28 + privacyDay;
+          // 계약 체결일 + 유효기간 총 일수 계산
+          int expirationDate = totalDaysPrivacy + (privacyPeriod * 28);
+          // 유효기간이 지난 개인정보인지 확인
+          if (totalDaysToday >= expirationDate) {
+            expiredPrivacies.add(i + 1); // 1-indexed
+          }
+        }
+      }
+
+      return expiredPrivacies.stream().mapToInt(i -> i).toArray();
+    }
+  }
+
+}
+
+```
