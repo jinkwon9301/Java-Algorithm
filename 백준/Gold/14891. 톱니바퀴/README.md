@@ -57,3 +57,102 @@
 	<li>4번 톱니바퀴의 12시방향이 N극이면 0점, S극이면 8점</li>
 </ul>
 
+📝 초기코드 실패 이유
+```java
+/*
+❗ 문제 핵심
+너는 좌측 톱니 회전과 우측 톱니 회전을 각각 따로 처리했는데,
+이렇게 하면 좌측 회전 중 기어를 돌려버리면, 그 상태가 우측 회전 처리에 영향을 준다는 문제가 생겨.
+
+즉, 기어 회전은 전파 여부 판단 → 실제 회전을 분리해서 진행해야 해.
+*/
+
+package com.example.hello.codingTest;
+
+import java.util.*;
+    import java.io.*;
+
+class Main {
+  static int N, result;
+  static StringTokenizer st;
+  static StringBuilder sb = new StringBuilder();
+
+  public static void main(String[] args) throws Exception {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+    LinkedList<Character>[] gears = new LinkedList[4];
+    for (int i = 0; i < 4; i++) {
+      gears[i] = new LinkedList<>();
+    }
+
+    for (int i = 0; i < 4; i++) {
+      String line = br.readLine();
+      for (char c : line.toCharArray()) {
+        gears[i].add(c);
+      }
+    }
+
+    int rotationCount = Integer.parseInt(br.readLine());
+    for (int i = 0; i < rotationCount; i++) {
+      st = new StringTokenizer(br.readLine(), " ");
+      int gearIndex = Integer.parseInt(st.nextToken()) - 1;
+      int direction = Integer.parseInt(st.nextToken());
+
+      // 선택한 기어를 돌리기 전 좌우 기어의 회전 여부와 방향을 결정
+      rotateLeftGears(gears, gearIndex, direction);
+      rotateRightGears(gears, gearIndex, direction);
+    }
+
+    for (int i = 0; i < 4; i++) {
+      result += gears[i].get(2) == '1' ? (int) Math.pow(2, i) : 0;
+    }
+
+    System.out.println(result);
+  }
+
+  private static void rotate(LinkedList<Character>[] gears, int gear, int direction) {
+    if (direction == 1) {
+      char last = gears[gear].removeLast();
+      gears[gear].addFirst(last);
+    } else {
+      char first = gears[gear].removeFirst();
+      gears[gear].addLast(first);
+    }
+  }
+
+  private static void rotateLeftGears(LinkedList<Character>[] gears, int gearIndex, int direction) {
+    // 현재 기어의 왼쪽면 NS극
+    char currentGear = gears[gearIndex].get(0);
+
+    // 왼쪽 기어의 오른쪽면 NS극과 비교하여 회전 여부 결정
+    if (gearIndex > 0) {
+      char leftGear = gears[gearIndex - 1].get(4);
+      if (currentGear != leftGear) {
+        // 왼쪽 기어를 회전시켜야 함
+        rotateLeftGears(gears, gearIndex - 1, -direction);
+      }
+    }
+
+    // 현재 기어 회전
+    rotate(gears, gearIndex, direction);
+  }
+
+  private static void rotateRightGears(LinkedList<Character>[] gears, int gearIndex, int direction) {
+    // 현재 기어의 왼쪽면 NS극
+    char currentGear = gears[gearIndex].get(4);
+
+    // 오른쪽 기어의 오른쪽면 NS극과 비교하여 회전 여부 결정
+    if (gearIndex < 3) {
+      char rightGear = gears[gearIndex + 1].get(0);
+      if (currentGear != rightGear) {
+        // 왼쪽 기어를 회전시켜야 함
+        rotateRightGears(gears, gearIndex + 1, -direction);
+      }
+    }
+
+    // 현재 기어 회전
+    rotate(gears, gearIndex, direction);
+  }
+}
+
+```
