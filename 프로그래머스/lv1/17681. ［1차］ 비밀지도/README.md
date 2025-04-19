@@ -97,3 +97,57 @@ Empty
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+
+--- 
+
+```java
+/*
+[비트기반 연산]
+
+|는 겹쳐서 하나라도 1이면 1
+&는 둘 다 1일 때만 1
+^는 서로 다를 때 1
+
+String.format("%ns", str)
+%	포맷 시작
+n	전체 너비 (문자 수)
+s	문자열(String)
+
+*/
+package com.example.hello.codingTest;
+
+public class Programmers {
+
+  static int n = 5;
+  static int[] arr1 = {9, 20, 28, 18, 11};
+  static int[] arr2 = {30, 1, 21, 17, 28};
+
+  public static void main(String[] args) {
+    Solution solution = new Programmers().new Solution();
+    String[] result = solution.solution(n, arr1, arr2);
+  }
+
+  class Solution {
+    public String[] solution(int n, int[] arr1, int[] arr2) {
+
+      String[] map = new String[n];
+
+      for (int i = 0; i < n; i++) {
+        int combined = arr1[i] | arr2[i];
+        System.out.println("Integer.toBinaryString(combined) = " + Integer.toBinaryString(combined));
+
+        // 2진수 n자리로 변환 후, '1' -> '#', '0' -> ' '
+        String line = String.format("%" + n + "s", Integer.toBinaryString(combined))
+            .replace(' ', '0')  // 앞자리 0 채우기
+            .replace('1', '#')
+            .replace('0', ' ');
+
+        map[i] = line;
+      }
+
+      return map;
+    }
+  }
+
+}
+```
