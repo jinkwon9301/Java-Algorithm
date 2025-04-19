@@ -1,41 +1,33 @@
+/*
+[비트기반 연산]
+
+|는 겹쳐서 하나라도 1이면 1
+&는 둘 다 1일 때만 1
+^는 서로 다를 때 1
+
+String.format("%ns", str)
+%	포맷 시작
+n	전체 너비 (문자 수)
+s	문자열(String)
+
+*/
 class Solution {
     public String[] solution(int n, int[] arr1, int[] arr2) {
-        int[][] result1 = new int[n][n];
 
-        findWall(arr1, result1, n);
-        findWall(arr2, result1, n);
+      String[] map = new String[n];
 
-        String[] result2 = new String[n];
-        for (int i = 0; i < n; i++) {
-          StringBuilder sb = new StringBuilder();
-          for (int j = 0; j < n; j++) {
-            sb.append(result1[i][j] == 1 ? '#' : ' ');
-          }
-          result2[i] = sb.toString();
-        }
-        
-        return result2;
-    }
-    
-    static void findWall(int[] arr, int[][] result, int n) {
-    for (int i = 0; i < arr.length; i++) {
-      int i1 = arr[i];
-      long binary = 0;
-      int k = 0;
-      while (i1 != 0) {
-        binary = binary + (i1 % 2) * (long)Math.pow(10, k++);
-        i1 /= 2;
-      }
-      String binary_str = binary + "";
-      if (binary_str.length() != n) {
-        while (binary_str.length() != n) {
-          binary_str = 0 + binary_str;
-        }
+      for (int i = 0; i < n; i++) {
+        int combined = arr1[i] | arr2[i];
+
+        // 2진수 n자리로 변환 후, '1' -> '#', '0' -> ' '
+        String line = String.format("%" + n + "s", Integer.toBinaryString(combined))
+            .replace(' ', '0')  // 앞자리 0 채우기
+            .replace('1', '#')
+            .replace('0', ' ');
+
+        map[i] = line;
       }
 
-      for (int j = 0; j < binary_str.length(); j++) {
-        if (binary_str.charAt(j) == '1') result[i][j] = 1;
-      }
+      return map;
     }
   }
-}
